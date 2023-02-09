@@ -15,7 +15,7 @@ const recordList = await pb.collection("techs").getFullList(200, {
         <a href="/articles">Articles</a> |
         <a href="/aitools">AI Tools</a>
     </div>
-    <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 mb-3 px-3">
+    <div class=" grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-3 mt-3 mb-3 px-3">
         { recordList.map(record => <a href={`/technologies/${record["id"]}`}><Card data={record} /></a>) }
     </div>
 </Layout>

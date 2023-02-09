@@ -2,9 +2,21 @@
 const { data } = Astro.props;
 ---
 
-<div class="w-full border-2 rounded-lg p-3 border-black h-full hover:bg-yellow-600 active:scale-75">
-  {data["title"] && <h2 class="text-xl font-bold">{data["title"]}</h2>}
-  {data["name"] && <h2 class="text-xl font-bold">{data["name"]}</h2>}
+<div
+  class="w-full border-2 rounded-lg border-black h-full hover:bg-yellow-600 active:scale-75"
+>
+  <div class="p-3">
+    {data["title"] && <h2 class="text-xl font-bold">{data["title"]}</h2>}
+  <div class="flex flex-row items-center gap-2">
+    {data["name"] && <h2 class="text-xl font-bold">{data["name"]}</h2>}
+    {
+      data["open_source"] && (
+        <span class="text-xs bg-green-300 text-green-900 p-1 rounded-lg">
+          Open Source
+        </span>
+      )
+    }
+  </div>
   {data["description"] && <p>{data["description"].slice(0, 100) + "..."}</p>}
   {data["excrept"] && <p>{data["excrept"].slice(0, 50) + "..."}</p>}
   {
@@ -18,4 +30,12 @@ const { data } = Astro.props;
       </div>
     )
   }
+  </div>
+  <!-- {
+    data["title"] && (
+      <a href={data["url"]} target="_blank">
+        <div class="border-t-2 border-black text-center">Click here to read directly</div>
+      </a>
+    )
+  } -->
 </div>
