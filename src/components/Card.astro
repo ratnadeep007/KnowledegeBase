@@ -16,6 +16,9 @@ const { data } = Astro.props;
         </span>
       )
     }
+    {
+      data["payment"] && <span class="bg-green-300 p-1 rounded-lg text-green-900">{data["payment"]}</span>
+    }
   </div>
   {data["description"] && <p>{data["description"].slice(0, 100) + "..."}</p>}
   {data["excrept"] && <p>{data["excrept"].slice(0, 50) + "..."}</p>}

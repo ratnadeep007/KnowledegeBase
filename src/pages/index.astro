@@ -4,13 +4,14 @@ import Footer from '../components/Footer.astro';
 import Newspaper from 'astro-heroicons/mini/Newspaper.astro';
 import Wrench from 'astro-heroicons/mini/Wrench.astro';
 import Rocket from 'astro-heroicons/mini/RocketLaunch.astro';
+import AcademicCap from 'astro-heroicons/mini/AcademicCap.astro';
 ---
 
 <Layout title="Knowledge Base">
 	<div class="flex flex-col justify-center items-center h-screen">
 		<h1 class="text-4xl font-semibold text-gray-900 text-center">Knowledge Base</h1>
-		<p class="text-gray-900 text-center mt-2">Keeping track of all necessary softwares and tools you may require to build a successful product.</p>
-		<div class="grid mt-2 gap-2 px-3">
+		<p class="text-gray-900 text-center mt-2">Discover the Best Software, AI Tools, and Learning Resources with One Central Hub</p>
+		<div class="grid grid-cols-1 md:grid-cols-2 mt-2 gap-2 px-3">
 			<a href="/technologies" class="flex flex-row gap-2 border-black border-2 rounded-lg hover:bg-yellow-600 cursor-pointer active:scale-75">
 				<Wrench class="w-6 m-3 self-center" />
 				<div class="flex flex-col border-l-2 border-black py-2 px-4 w-full">
@@ -30,6 +31,13 @@ import Rocket from 'astro-heroicons/mini/RocketLaunch.astro';
 				<div class="flex flex-col border-l-2 border-black py-2 px-4 w-full">
 					<h2 class="text-center text-xl">AI Tools</h2>
 					<p class="text-center">Interesting AI tools to look for</p>
+				</div>
+			</a>
+			<a href="/learn" class="flex flex-row gap-2 border-black border-2 rounded-lg hover:bg-yellow-600 cursor-pointer active:scale-75">
+				<AcademicCap class="w-6 m-3 self-center" />
+				<div class="flex flex-col border-l-2 border-black py-2 px-4 w-full">
+					<h2 class="text-center text-xl">Learn</h2>
+					<p class="text-center">Website where you can learn new things</p>
 				</div>
 			</a>
 		</div>
