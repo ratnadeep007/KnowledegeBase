@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@astrojs/tailwind": "^3.0.1",
 		"@astrojs/vercel": "^3.1.0",
+		"@vercel/analytics": "^0.1.8",
 		"astro": "^2.0.9",
 		"astro-heroicons": "^0.3.0",
 		"pocketbase": "^0.10.1",
