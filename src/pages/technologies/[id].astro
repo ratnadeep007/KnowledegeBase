@@ -2,8 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import ArrowLeft from 'astro-heroicons/solid/ArrowSmallLeft.astro';
 import PocketBase from "pocketbase";
-const url = import.meta.env.POCKETBASE_URL;
-const pb = new PocketBase(url);
+import { getPocketBase } from "../../utils/pocketbase";
+const pb = getPocketBase();
 
 const { id } = Astro.params;
 
