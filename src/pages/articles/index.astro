@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 import PocketBase from "pocketbase";
-const pb = new PocketBase('https://pocketbase-darklord.fly.dev');
+const url = import.meta.env.POCKETBASE_URL;
+const pb = new PocketBase(url);
 
 const recordList = await pb.collection("articles").getFullList(200, {
     expand: 'type',

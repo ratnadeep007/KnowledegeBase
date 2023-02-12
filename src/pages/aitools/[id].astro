@@ -2,7 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import ArrowLeft from 'astro-heroicons/solid/ArrowSmallLeft.astro';
 import PocketBase from "pocketbase";
-const pb = new PocketBase('https://pocketbase-darklord.fly.dev');
+const url = import.meta.env.POCKETBASE_URL;
+const pb = new PocketBase(url);
 
 const { id } = Astro.params;
 
