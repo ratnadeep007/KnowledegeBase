@@ -15,7 +15,11 @@
 		"@vercel/analytics": "^0.1.8",
 		"astro": "^2.0.9",
 		"astro-heroicons": "^0.3.0",
+		"astro-page-transition": "^0.5.6",
 		"pocketbase": "^0.10.1",
 		"tailwindcss": "^3.2.6"
+	},
+	"devDependencies": {
+		"sass": "^1.58.2"
 	}
 }

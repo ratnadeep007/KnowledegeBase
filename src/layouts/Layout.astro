@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
+import { PageTransition } from 'astro-page-transition';
 
 export interface Props {
 	title: string;
@@ -37,5 +38,6 @@ const { title } = Astro.props;
 			<slot />
 		</main>
 		<!-- <Footer /> -->
+		<PageTransition background="linear-gradient(to bottom right, #D1913C, #FFD194);" />
 	</body>
 </html>
