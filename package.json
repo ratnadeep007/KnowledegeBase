@@ -7,7 +7,8 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"index:start": "ts-node --esm src/scripts/startIndex"
 	},
 	"dependencies": {
 		"@astrojs/tailwind": "^3.0.1",
@@ -15,7 +16,13 @@
 		"@vercel/analytics": "^0.1.8",
 		"astro": "^2.0.9",
 		"astro-heroicons": "^0.3.0",
+		"meilisearch": "^0.31.1",
 		"pocketbase": "^0.10.1",
 		"tailwindcss": "^3.2.6"
+	},
+	"devDependencies": {
+		"@types/node": "^18.13.0",
+		"dotenv": "^16.0.3",
+		"ts-node": "^10.9.1"
 	}
 }
