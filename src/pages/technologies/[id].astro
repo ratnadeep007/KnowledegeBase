@@ -1,29 +1,66 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import ArrowLeft from 'astro-heroicons/solid/ArrowSmallLeft.astro';
+import ArrowLeft from "astro-heroicons/solid/ArrowSmallLeft.astro";
 import PocketBase from "pocketbase";
 import { getPocketBase } from "../../utils/pocketbase";
+import { YouTube } from "@astro-community/astro-embed-youtube";
 const pb = getPocketBase();
 
 const { id } = Astro.params;
 
-const tech = await pb.collection('techs').getOne(id || '1', {
-    expand: 'type',
+const tech = await pb.collection("techs").getOne(id || "1", {
+  expand: "type,videos(tech)"
 });
+console.log(tech.expand);
 ---
-<Layout title={tech["name"] + '| KnowledegeBase'} >
-    <div class="w-full h-screen flex flex-col justify-center items-center px-3">
-        <div class="border-2 border-black rounded-lg p-4 flex flex-col gap-2 w-11/12 md:w-1/2">
-            <div class="flex flex-row w-full justify-start items-center gap-3">
-                <a href="/technologies"><ArrowLeft class="w-6" /></a>
-                <h1 class="text-center text-2xl font-semibold">{tech["name"]}</h1>
+
+<Layout title={tech["name"] + "| KnowledegeBase"}>
+  <div class="w-full h-screen flex flex-col justify-center items-center px-3">
+    <div
+      class="border-2 border-black rounded-lg p-4 flex flex-col gap-2 w-11/12 md:w-1/2"
+    >
+      <div class="flex flex-row w-full justify-start items-center gap-3">
+        <a href="/technologies"><ArrowLeft class="w-6" /></a>
+        <h1 class="text-center text-2xl font-semibold">{tech["name"]}</h1>
+      </div>
+      <p class="whitespace-pre-line">{tech["description"]}</p>
+      {
+        tech["github_url"] && (
+          <a href={tech["github_url"]} target="_blank" class="underline">
+            Github link
+          </a>
+        )
+      }
+      {
+        tech["product_url"] && (
+          <a href={tech["product_url"]} target="_blank" class="underline">
+            Product link
+          </a>
+        )
+      }
+      <div class="flex flex-row gap-2">
+        {
+          tech["expand"]["type"].map((type: any) => (
+            <div class="text-sm rounded-lg border-2 border-black w-fit p-1">
+              {type["name"]}
             </div>
-            <p class="whitespace-pre-line">{tech["description"]}</p>
-            {tech['github_url'] && <a href={tech['github_url']} target="_blank" class="underline">Github link</a>}
-            {tech['product_url'] && <a href={tech['product_url']} target="_blank" class="underline">Product link</a>}
-            <div class="flex flex-row gap-2">
-                {tech['expand']['type'].map((type: any) => <div class="text-sm rounded-lg border-2 border-black w-fit p-1">{type['name']}</div>)}
+          ))
+        }
+      </div>
+      {
+        tech["expand"]["videos(tech)"] && (
+          <div>
+            <p class="text-xl font-bold mt-3">Video</p>
+            <div>
+              {<YouTube id={tech["expand"]["videos(tech)"].at(0)["url"]} />}
+              <span class="font-semibold text-lg mt-1">
+                {tech["expand"]["videos(tech)"].at(0)["name"]}
+              </span>
             </div>
-        </div>
+          </div>
+        )
+      }
     </div>
+    <!-- <div class="border-2 border-black rounded-lg p-4 flex-col gap-2 w-11/12 md:w-1/2"></div> -->
+  </div>
 </Layout>

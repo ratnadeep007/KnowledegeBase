@@ -25,7 +25,7 @@ const { data } = Astro.props;
   {
     data["expand"] && data["expand"]["type"] && (
       <div class="flex flex-row gap-2 mt-3">
-        {data["expand"]["type"].map((type: any) => (
+        {data["expand"]["type"].slice(0,3).map((type: any) => (
           <div class="text-sm rounded-lg border-2 border-black w-fit p-1">
             {type["name"]}
           </div>
