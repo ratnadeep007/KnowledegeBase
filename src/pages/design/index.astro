@@ -1,23 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
+import PocketBase from "pocketbase";
 import { getPocketBase } from "../../utils/pocketbase";
 const pb = getPocketBase();
 
-const recordList = await pb.collection("techs").getFullList(200, {
+const recordList = await pb.collection("design").getFullList(200, {
     expand: 'type',
 });
 ---
 
-<Layout title="Technologies | Knowledge Base">
+<Layout title="Articles | Knowledge Base">
     <div class="mt-3 px-3 flex flex-row gap-3 text-sm justify-center underline">
         <a href="/">Home</a> |
+        <a href="/technologies">Technologies</a> |
         <a href="/articles">Articles</a> |
         <a href="/aitools">AI Tools</a> |
-        <a href="/learn">Learn</a>|
-        <a href="/design">Design</a>
+        <a href="/learn">Learn</a>
     </div>
-    <div class=" grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-3 mt-3 mb-3 px-3">
-        { recordList.map(record => <a href={`/technologies/${record["id"]}`}><Card data={record} /></a>) }
+    <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 mb-3 px-3">
+        { recordList.map(record => <a href={`/design/${record["id"]}`}><Card data={record} /></a>) }
     </div>
 </Layout>

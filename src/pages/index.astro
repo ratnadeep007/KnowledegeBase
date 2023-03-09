@@ -5,6 +5,7 @@ import Newspaper from 'astro-heroicons/mini/Newspaper.astro';
 import Wrench from 'astro-heroicons/mini/Wrench.astro';
 import Rocket from 'astro-heroicons/mini/RocketLaunch.astro';
 import AcademicCap from 'astro-heroicons/mini/AcademicCap.astro';
+import PaintBrush from 'astro-heroicons/mini/PaintBrush.astro';
 ---
 
 <Layout title="Knowledge Base">
@@ -40,7 +41,23 @@ import AcademicCap from 'astro-heroicons/mini/AcademicCap.astro';
 					<p class="text-center">Website where you can learn new things</p>
 				</div>
 			</a>
+			<a href="/design" class="flex flex-row border-black border-2 rounded-lg hover:bg-yellow-600 cursor-pointer active:scale-75">
+				<PaintBrush class="w-6 m-3 self-center" />
+				<div class="flex flex-col border-l-2 border-black py-2 px-4 w-full">
+					<h2 class="text-center text-xl">Design Tools</h2>
+					<p class="text-center">Unlock your creativity with these tools</p>
+				</div>
+			</a>
 		</div>
+		<!-- <div class="flex flex-row justify-center mt-2 px-0 w-full">
+			<a href="/design" class="flex flex-row border-black border-2 rounded-lg hover:bg-yellow-600 cursor-pointer active:scale-75">
+				<PaintBrush class="w-6 m-3 self-center" />
+				<div class="flex flex-col border-l-2 border-black py-2 px-4 w-full">
+					<h2 class="text-center text-xl">Design Tools</h2>
+					<p class="text-center">Unlock your creativity with these tools</p>
+				</div>
+			</a>
+		</div> -->
 		<Footer />
 	</div>
 </Layout>

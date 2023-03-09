@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ArrowLeft from 'astro-heroicons/solid/ArrowSmallLeft.astro';
+import { getPocketBase } from "../../utils/pocketbase";
+const pb = getPocketBase();
+
+const { id } = Astro.params;
+
+const design = await pb.collection('design').getOne(id || '1', {
+    expand: 'type',
+});
+---
+<Layout title={design["title"] + '| KnowledegeBase'} >
+    <div class="w-full h-screen flex flex-col justify-center items-center px-3">
+        <div class="border-2 border-black rounded-lg p-4 flex flex-col gap-2 w-11/12 md:w-1/2">
+            <div class="flex flex-row w-full justify-start items-center gap-3">
+                <a href="/design"><ArrowLeft class="w-6" /></a>
+                <h1 class="text-center text-2xl font-semibold">{design["name"]}</h1>
+            </div>
+            <p class="whitespace-pre-line">{design["description"]}</p>
+            <a href={design['url']} target="_blank" class="underline">{design["url"]}</a>
+            <div class="flex flex-row gap-2">
+                { design['expand']['type'] && design['expand']['type'].map((type: any) => <div class="text-sm rounded-lg border-2 border-black w-fit p-1">{type['name']}</div>)}
+            </div>
+        </div>
+    </div>
+</Layout>
