@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
-import PocketBase from "pocketbase";
 import { getPocketBase } from "../../utils/pocketbase";
 const pb = getPocketBase();
 
@@ -10,7 +9,7 @@ const recordList = await pb.collection("design").getFullList(200, {
 });
 ---
 
-<Layout title="Articles | Knowledge Base">
+<Layout title="Design Tools | Knowledge Base">
     <div class="mt-3 px-3 flex flex-row gap-3 text-sm justify-center underline">
         <a href="/">Home</a> |
         <a href="/technologies">Technologies</a> |

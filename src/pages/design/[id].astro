@@ -10,7 +10,7 @@ const design = await pb.collection('design').getOne(id || '1', {
     expand: 'type',
 });
 ---
-<Layout title={design["title"] + '| KnowledegeBase'} >
+<Layout title={design["name"] + ' | KnowledegeBase'} >
     <div class="w-full h-screen flex flex-col justify-center items-center px-3">
         <div class="border-2 border-black rounded-lg p-4 flex flex-col gap-2 w-11/12 md:w-1/2">
             <div class="flex flex-row w-full justify-start items-center gap-3">
